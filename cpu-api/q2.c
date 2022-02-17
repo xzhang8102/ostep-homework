@@ -21,9 +21,11 @@ int main(int argc, char const *argv[])
     // child
     printf("fd from child: %d\n", fd);
     write(fd, "hello from child!\n", 18);
+    close(fd);
   } else {
     // parent
     printf("fd from parent: %d\n", fd);
     write(fd, "hello from parent\n", 18);
+    close(fd);
   }
 }

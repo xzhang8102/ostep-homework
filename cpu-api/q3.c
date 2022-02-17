@@ -26,12 +26,14 @@ int main(int argc, char *argv[])
     FILE *stream = fdopen(pipefd[1], "w");
     fprintf(stream, "Done");
     fclose(stream);
+    close(pipefd[1]);
     printf("hello\n");
   } else {
     close(pipefd[1]);
     FILE *stream = fdopen(pipefd[0], "r");
     while(fgetc(stream) != EOF);
     fclose(stream);
+    close(pipefd[0]);
     printf("goodbye\n");
   }
 }
