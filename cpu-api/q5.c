@@ -10,12 +10,12 @@ int main(int argc, char const *argv[])
     exit(1);
   } else if (pid == 0) {
     // int w = wait(NULL);
-    // returns [ECHILD]
-    printf("Hello from child.\n");
+    // wait returns [ECHILD]
+    printf("Hello from child (%d).\n", getpid());
   } else {
     // wait returns child pid
-    // int w = wait(NULL);
-    printf("Hello from parent.\n");
+    int w = waitpid(pid, NULL, 0);
+    printf("pid: %d, wait returns %d.\n", getpid(), w);
   }
   return 0;
 }
