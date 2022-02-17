@@ -1,7 +1,7 @@
-all: q1 q2 q3 q4 q5
+all: q1 q2 q3 q4 q5 q7
 
 clean:
-	rm -f q1 q2 q2.output q3 q4 q5
+	rm -f q1 q2 q2.output q3 q4 q5 q7
 
 q1: q1.c
 	gcc -o q1 q1.c -Wall
@@ -17,3 +17,6 @@ q4: q4.c
 
 q5: q5.c
 	gcc -o q5 q5.c -Wall
+
+q7: q7.c
+	gcc -o q7 q7.c -Wall
